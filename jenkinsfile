@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('w/ docker') {  // Corrected the stage name
+        stage('w/ docker') {
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -20,22 +20,19 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Test Build') {  // Changed stage name to avoid duplication
             agent {
                 docker {
-                    image 'node 18-alpine'
+                    image 'node:18-alpine'  // Corrected image name format
                     reuseNode true
                 }
             }
-        }
-
-        stage('Test') {
             steps {
                 echo 'Test stage'
                 sh '''
                     test -f build/index.html
                     npm test
-            '''
+                '''  // Added missing closing quote here
             }
         }
     }
