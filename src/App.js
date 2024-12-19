@@ -12,7 +12,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Jenkins with haarees
+          Learn Jenkins on udemy
         </a>
       </header>
       <p>
